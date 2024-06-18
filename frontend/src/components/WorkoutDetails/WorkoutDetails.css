@@ -1,0 +1,21 @@
+.workout-details {
+  background: #fff;
+  border-radius: 30px; /* This should apply the rounded corners */
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  border: 2px solid black; /* This border should not interfere with border-radius */
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: #169974;
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}

@@ -1,0 +1,33 @@
+GET http://localhost:4000/api/workouts
+
+###
+
+GET http://localhost:4000/api/workouts/666e5f5931d7f7acd0ab40ac
+
+###
+
+POST http://localhost:4000/api/workouts
+Content-Type: application/json
+
+{
+    "title":"gg",
+    "load": 10,
+    "reps":25
+}
+
+###
+
+DELETE http://localhost:4000/api/workouts/666fa6e3cfba6df763fe049f
+
+###
+
+PATCH http://localhost:4000/api/workouts/666f22faf358b05d41b93ff0
+Content-Type: application/json
+
+{
+    "reps": 20
+}
+
+
+
+
