@@ -3,6 +3,8 @@ import './HomePage.css'
 import WorkoutDetails from '../../components/WorkoutDetails/WorkoutDetails'
 import WorkoutForm from '../../components/WorkoutFrom/WorkoutForm'
 import { useWorkoutContext } from '../../hooks/useWorkoutContext'
+
+
 const HomePage = () => {
   const {Workouts, dispatch} = useWorkoutContext()
   useEffect(() => {
