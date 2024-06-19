@@ -4,6 +4,20 @@ const mongoose = require('mongoose')
 //Creating a new workout
 const createNewWorkout = async(req, res) => {
     const {title, load, reps} = req.body
+    let emptyFields = []
+
+    if (!title) {
+        emptyFields.push('title')
+    }
+    if (!load) {
+        emptyFields.push('load')
+    }
+    if (!reps) {
+        emptyFields.push('reps')
+    }
+    if (emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all fields', emptyFields })
+    }
    try{
         const newworkout = await Workout.create({
             title,
@@ -42,15 +56,16 @@ const getOneWorkout = async (req, res) => {
 //Deleting a Workout
 const deleteOneWorkout = async (req, res) => {
     const { id } = req.params
-    if( !mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'No Such Workout Exists'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({error: 'No such workout'})
     }
-    const delOneWorkout = await Workout.findOneAndDelete({_id: id})
-    if(!delOneWorkout){
-        res.status(404).json({error: "No such workout exists"})
+    const delOneworkout = await Workout.findOneAndDelete({_id: id})
+    if(!delOneworkout) {
+      return res.status(400).json({error: 'No such workout'})
     }
-    res.status(200).json(delOneWorkout)
+    res.status(200).json(delOneworkout)
 }
+
 
 //update workout
 const updateOneWorkout = async (req, res) => {

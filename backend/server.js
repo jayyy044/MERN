@@ -15,8 +15,8 @@ const mongoose = require('mongoose')
 
 const app = express();
 
-
 app.use(cors(corsOptions))
+
 app.use(express.json())
 
 app.use((req, res, next) => {
@@ -28,16 +28,15 @@ app.use('/api/workouts',  workoutRoutes)
 
 mongoose.connect(process.env.MONGO_URL)
  .then(() => {
+   console.log('Connected to Database')
 
-    console.log('Connected to Database')
-
-    app.listen(process.env.PORT, () =>{
-        console.log(`Listening on Port ${process.env.PORT}`)
-    })
+   app.listen(process.env.PORT, () =>{
+      console.log(`Listening on Port ${process.env.PORT}`)
+   })
 
  })
  .catch((error) =>{
 
-    console.log(error)
+   console.log(error)
 
  })
