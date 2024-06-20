@@ -36,3 +36,7 @@ form button {
 form button:hover{
     background: lightgrey;
 }
+
+input.error {
+    border: 1px solid #e7195a;
+  }
